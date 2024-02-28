@@ -39,6 +39,10 @@ function QuotesPage() {
     if (QuotesData) {
       setQuotesData(QuotesData.data?.quotes);
     }
+
+    return () => {
+      setQuotesData(QuotesData?.data?.quotes);
+    };
   }, [QuotesData]);
 
   useEffect(() => {
@@ -52,6 +56,10 @@ function QuotesPage() {
     } else if (QuotesData && !queriedAuthor) {
       setQuotesData(QuotesData.data?.quotes);
     }
+
+    return () => {
+      setQueriedAuthor("");
+    };
   }, [queriedAuthor, quotesData]);
 
   useEffect(() => {
