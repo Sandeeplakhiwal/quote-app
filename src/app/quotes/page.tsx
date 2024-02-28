@@ -41,7 +41,7 @@ function QuotesPage() {
     }
 
     return () => {
-      setQuotesData(QuotesData?.data?.quotes);
+      setQuotesData([]);
     };
   }, [QuotesData]);
 
@@ -56,14 +56,14 @@ function QuotesPage() {
     } else if (QuotesData && !queriedAuthor) {
       setQuotesData(QuotesData.data?.quotes);
     }
-
-    return () => {
-      setQueriedAuthor("");
-    };
-  }, [queriedAuthor, quotesData]);
+  }, [queriedAuthor]);
 
   useEffect(() => {
     document.title = "Quotes • Quote App";
+
+    return () => {
+      setQuotesData([]);
+    };
   }, []);
 
   return (
